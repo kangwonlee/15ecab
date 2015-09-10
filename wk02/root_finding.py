@@ -19,3 +19,13 @@ def func(x):
 # inspired by Scratch example
 
 
+def dfunc(x):
+    return 2.0 * x
+# end of dfunc()
+# for later use
+
+
+# |x| < epsilon == (x = 0)
+epsilon = 1e-3
+
+
