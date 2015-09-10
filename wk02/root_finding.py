@@ -19,7 +19,10 @@ def bisection(f, xl, xh):
     while True:
         xn = 0.5 * (xl + xh)
 
-        if f(xn) * f(xh) < 0:
+        fxn = f(xn)
+        fxh = f(xh)
+
+        if fxn * fxh < 0:
             xl = xn
         else:
             xh = xn
@@ -29,6 +32,21 @@ def bisection(f, xl, xh):
     print "bis_counter =", counter
     return xn
 # end of bisection
+
+
+def newton(f, df, x0):
+    xi = float(x0)
+    counter = 0
+    while True:
+        fi = f(xi)
+        if abs(fi) < epsilon:
+            break
+        else:
+            xi += (-fi / df(xi))
+        counter += 1
+    print "nr_counter =", counter
+    return xi
+# end of Newton Raphson
 
 
 def func(x):
@@ -59,3 +77,8 @@ if "__main__" == __name__:
     x_bis = bisection(func, 0.01, 2.0)
     print "x_bis =", x_bis
     print "f(x_bis) =", func(x_bis)
+
+    # call Newton Raphson method
+    x_nr = newton(func, dfunc, 2.0)
+    print "x_nr =", x_nr
+    print "f(x_nr) =", func(x_nr)
