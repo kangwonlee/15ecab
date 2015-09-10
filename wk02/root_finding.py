@@ -28,4 +28,12 @@ def dfunc(x):
 # |x| < epsilon == (x = 0)
 epsilon = 1e-3
 
+if "__main__" == __name__:
+    # initial value
+    x0 = "0.01"
+
+    # call sequential method
+    x_seq = sequential(func, x0)
+    print "x_seq =", x_seq
+    print "f(x_seq) =", func(x_seq)
 
