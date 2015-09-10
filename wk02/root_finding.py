@@ -1,3 +1,4 @@
+# -*- coding: cp949 -*-
 def sequential(f, x0):
     xi = float(x0)
     delta_x = 1e-6
