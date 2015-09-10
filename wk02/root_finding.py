@@ -12,3 +12,10 @@ def sequential(f, x0):
     return xi
 # end of sequential()
 
+
+def func(x):
+    return 1.0 * x * x - 2.0
+# end of func()
+# inspired by Scratch example
+
+
