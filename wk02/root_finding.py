@@ -1,5 +1,7 @@
 # -*- coding: cp949 -*-
 # 1변수 방정식의 해법
+
+
 def sequential(f, x0):
     # sequential method
     # x0 에서 시작하여 f(x) 를 계산하고 그 절대값이 epsilon 보다 크면
@@ -19,13 +21,13 @@ def sequential(f, x0):
 
 
 def bisection(f, xl, xh):
-    # 이분법
-    # xl, xh 두개의 초기값을 사용
-    # f(xl), f(xh) 의 부호가 반대여야 한다
-    # == f(xl) x f(xh) < 0
-    # xl과 xh 사이의 중간 지점인 xn 에서 f(xn)을 계산하여
-    # f(xh) 와의 부호를 비교해 다르면 xl을, 같으면 xh를 xn으로 갱신한다
-    # xl 과 xh 사이의 간격이 epsilon 보다 작으면 중단한다
+    """이분법
+    xl, xh 두개의 초기값을 사용
+    f(xl), f(xh) 의 부호가 반대여야 한다
+    == f(xl) x f(xh) < 0
+    xl과 xh 사이의 중간 지점인 xn 에서 f(xn)을 계산하여
+    f(xh) 와의 부호를 비교해 다르면 xl을, 같으면 xh를 xn으로 갱신한다
+    xl 과 xh 사이의 간격이 epsilon 보다 작으면 중단한다"""
     counter = 0
     while True:
         xn = 0.5 * (xl + xh)
