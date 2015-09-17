@@ -32,13 +32,17 @@ def bisection(f, xl, xh):
     while True:
         xn = 0.5 * (xl + xh)
 
+        fxl = f(xl)
         fxn = f(xn)
         fxh = f(xh)
 
         if fxn * fxh < 0:
             xl = xn
-        else:
+        elif fxl * fxn < 0:
             xh = xn
+        else:
+            print "Something is wrong"
+
         counter += 1
         if abs(xh - xl) < epsilon:
             break
