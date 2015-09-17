@@ -1,5 +1,9 @@
 # -*- coding: cp949 -*-
+# 1변수 방정식의 해법
 def sequential(f, x0):
+    # sequential method
+    # x0 에서 시작하여 f(x) 를 계산하고 그 절대값이 epsilon 보다 크면
+    # delta_x 만큼 전진하며 반복한다
     xi = float(x0)
     delta_x = 1e-6
     counter = 0
