@@ -112,6 +112,10 @@ def simpson2(f, x0, x1, n=100):
     """
     # initialization
     # calculate x interval
+
+    print "n =", n
+    print "n%2 =", n%2
+
     # if n is an odd number make it an even number
     if (n%2) : n += 1
     delta_x = (float(x1) - float(x0)) / n
@@ -166,7 +170,7 @@ if "__main__" == __name__:
     # final value
     x_end = 1.0
     # number of intervals
-    n_interval = 10
+    n_interval = 8
 
     # theoretical exact solution
     exact = (Func(x_end) - Func(x_begin))
