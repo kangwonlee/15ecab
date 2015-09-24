@@ -188,8 +188,8 @@ if "__main__" == __name__:
     n_plot = 100
     deltaX_plot = (float(x_end) - x_begin) / n_plot
     x = [x_begin + k*deltaX_plot for k in xrange(n_plot)]
-    x += [x_end, x_end, x_begin]
     y = [func(x[k]) for k in xrange(n_plot)]
+    x += [x_end, x_end, x_begin]
     y += [func(x_end), 0.0, 0.0]
 
     fill (x, y)
@@ -198,8 +198,8 @@ if "__main__" == __name__:
     n_plot = n_interval
     deltaX_plot = (float(x_end) - x_begin) / n_plot
     x = [x_begin + k*deltaX_plot for k in xrange(n_plot)]
-    x += [x_end]
     y = [func(x[k] + 0.5*deltaX_plot) for k in xrange(n_plot)]
+    x += [x_end]
     y += [0]
 
     bar(x, y, width=deltaX_plot, color='g', alpha=0.3)
