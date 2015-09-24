@@ -178,3 +178,7 @@ if "__main__" == __name__:
     # call trapezoid1 function
     F_1 = trapezoid1(func, x_begin, x_end, n_interval)
     print "F_1 =", F_1, "err =", F_1 - exact
+
+    # call simpson2 function
+    F_2 = simpson2(func, x_begin, x_end, n_interval)
+    print "F_2 =", F_2, "err =", F_2 - exact
