@@ -147,3 +147,14 @@ def simpson2(f, x0, x1, n=100):
     return  result
 # end of function simpson2()
 
+
+def func(x):
+    return exp(x)
+# end of function func()
+
+
+def Func(x):
+    return exp(x)
+# end of function Func()
+
+
