@@ -158,3 +158,15 @@ def Func(x):
 # end of function Func()
 
 
+if "__main__" == __name__:
+    help(rect0)
+    # initial value
+    x_begin = 0.0
+    # final value
+    x_end = 1.0
+    # number of intervals
+    n_interval = 10
+
+    # theoretical exact solution
+    exact = (Func(x_end) - Func(x_begin))
+    print "exact solution =", exact
