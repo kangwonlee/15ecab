@@ -1,5 +1,6 @@
-#from math module, import exp() function
+# from math module, import exp() function
 from math import exp
+
 
 def rect0(f, x0, x1, n=100):
     """
@@ -198,7 +199,7 @@ if "__main__" == __name__:
     n_plot = n_interval
     deltaX_plot = (float(x_end) - x_begin) / n_plot
     x = [x_begin + k*deltaX_plot for k in xrange(n_plot)]
-    y = [func(x[k] + 0.5*deltaX_plot) for k in xrange(n_plot)]
+    y = [func(xk + 0.5*deltaX_plot) for xk in x]
     x += [x_end]
     y += [0]
 
