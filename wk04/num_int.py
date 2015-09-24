@@ -182,3 +182,15 @@ if "__main__" == __name__:
     # call simpson2 function
     F_2 = simpson2(func, x_begin, x_end, n_interval)
     print "F_2 =", F_2, "err =", F_2 - exact
+
+    from pylab import fill, bar, show, xlim, ylim, grid
+    # exact
+    n_plot = 100
+    deltaX_plot = (float(x_end) - x_begin) / n_plot
+    x = [x_begin + k*deltaX_plot for k in xrange(n_plot)]
+    x += [x_end, x_end, x_begin]
+    y = [func(x[k]) for k in xrange(n_plot)]
+    y += [func(x_end), 0.0, 0.0]
+
+    fill (x, y)
+    show()
