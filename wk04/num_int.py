@@ -170,3 +170,8 @@ if "__main__" == __name__:
     # theoretical exact solution
     exact = (Func(x_end) - Func(x_begin))
     print "exact solution =", exact
+
+    # call rect0 function
+    F_0 = rect0(func, x_begin, x_end, n_interval)
+    print "F_0 =", F_0, "err =", F_0 - exact
+
