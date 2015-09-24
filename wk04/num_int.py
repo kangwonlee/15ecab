@@ -175,3 +175,6 @@ if "__main__" == __name__:
     F_0 = rect0(func, x_begin, x_end, n_interval)
     print "F_0 =", F_0, "err =", F_0 - exact
 
+    # call trapezoid1 function
+    F_1 = trapezoid1(func, x_begin, x_end, n_interval)
+    print "F_1 =", F_1, "err =", F_1 - exact
