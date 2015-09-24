@@ -203,4 +203,19 @@ if "__main__" == __name__:
     y += [0]
 
     bar(x, y, width=deltaX_plot, color='g', alpha=0.3)
+
+    # trapezoid1()
+    n_plot = n_interval
+    deltaX_plot = (float(x_end) - float(x_begin)) / n_plot
+    x = [x_begin + k*deltaX_plot for k in xrange(n_plot)]
+    y = [func(xk) for xk in x]
+    x += [x_end, x_end, x_begin]
+    y += [func(x_end), 0.0, 0.0]
+
+    fill(x, y, color='r', alpha=0.2)
+
+    xlim((x_begin, x_end))
+    ylim((0.0, ylim()[1]))
+
+    grid()
     show()
