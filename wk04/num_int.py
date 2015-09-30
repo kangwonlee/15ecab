@@ -46,6 +46,10 @@ def rect0(f, x0, x1, n=100):
 # end of function rect0()
 
 
+def num_int(f, x0, x1, n=100, method=rect0):
+    return method(f, x0, x1, n)
+
+
 def trapezoid1(f, x0, x1, n=100):
     """
     Numerical integration
@@ -170,7 +174,7 @@ if "__main__" == __name__:
     # final value
     x_end = 1.0
     # number of intervals
-    n_interval = 8
+    n_interval = 2
 
     # theoretical exact solution
     exact = (Func(x_end) - Func(x_begin))
@@ -183,6 +187,9 @@ if "__main__" == __name__:
     # call trapezoid1 function
     F_1 = trapezoid1(func, x_begin, x_end, n_interval)
     print "F_1 =", F_1, "err =", F_1 - exact
+    # call trapezoid1 function
+    F_11 = num_int(func, x_begin, x_end, n_interval, trapezoid1)
+    print "F_11 =", F_11, "err =", F_11 - exact
 
     # call simpson2 function
     F_2 = simpson2(func, x_begin, x_end, n_interval)
