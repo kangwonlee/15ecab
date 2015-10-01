@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 from math import sin, cos, atan, pi, sqrt, exp
 
 
@@ -151,7 +152,7 @@ if "__main__" == __name__:
     vT01, vX01 = fwd_euler(func, x0, ti_sec, te_sec, delta_T_sec)
 
     # exact solution
-    vXexact = tuple([exact(tk) for tk in vT])
+    vXexact = tuple(exact(tk) for tk in vT)
 
     import pylab
 
