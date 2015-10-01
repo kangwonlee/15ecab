@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+# -*- coding: cp949 -*-
 from math import sin, cos, atan, pi, sqrt, exp
 
 
