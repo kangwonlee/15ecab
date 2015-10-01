@@ -137,3 +137,7 @@ def exact(t):
 
     return y1
 # end function exact
+
+
+if "__main__" == __name__:
+    help(fwd_euler)
