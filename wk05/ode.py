@@ -75,7 +75,7 @@ def fwd_euler(f, x0, ti, te, deltaT):
 
 
 tau = 0.5
-m = 10.0
+m_kg = 10.0
 c = 100.0
 k = 1000.0
 
@@ -106,7 +106,7 @@ def func(xk, tk):
     y2 = xk[1]
 
     y1dot = y2
-    y2dot = (u - (k * y1 + c * y2)) / m
+    y2dot = (u - (k * y1 + c * y2)) / m_kg
 
     return (y1dot, y2dot)
 # end function func()
@@ -121,9 +121,9 @@ def exact(t):
     # step input
     u = 1
     # natural frequency (rad/sec)
-    wn = sqrt(k / m)
+    wn = sqrt(k / m_kg)
     # damping ratio
-    zeta = c / (2.0 * m * wn)
+    zeta = c / (2.0 * m_kg * wn)
 
     s = sqrt(1.0 - zeta * zeta)
     s1 = 1.0 / s
