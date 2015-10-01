@@ -72,3 +72,68 @@ def fwd_euler(f, x0, ti, te, deltaT):
     # end time step loop
     return listT, listX
 # end function fwd_euler()
+
+
+tau = 0.5
+m = 10.0
+c = 100.0
+k = 1000.0
+
+
+def func(xk, tk):
+    """
+    Differentail equation
+
+    m x2dot(t) + c xdot(t) + k x(t) = u(t)
+    u(t) = 1
+
+    Use m, c, k defined outside of this function
+    Parameters
+    ----------
+    xk : state vector at time step k
+         xk[0] = x
+         xk[1] = xdot
+    tk : time at time step k
+
+    Returns
+    -------
+    xdot : list of derivatives
+    """
+    # step input
+    u = 1
+
+    y1 = xk[0]
+    y2 = xk[1]
+
+    y1dot = y2
+    y2dot = (u - (k*y1 + c*y2))/m
+
+    return (y1dot, y2dot)
+# end function func()
+
+
+def exact(t):
+    """
+    Exact solution of a 1-DOF mechanical vibration
+    Ref : Rao, Mechanical Vibration, 2nd ed,
+        ISBN 0-201-55693-6, Example 4.3
+    """
+    # step input
+    u = 1
+    # natural frequency (rad/sec)
+    wn = sqrt(k / m)
+    # damping ratio
+    zeta = c / (2.0 * m * wn)
+
+    s = sqrt(1.0 - zeta * zeta)
+    s1 = 1.0 / s
+
+    # damped frequency (rad/sec)
+    wd = wn * s
+    # phase (rad)
+    phi = atan(zeta * s)
+
+    y1 = (u / k) * (1.0 - s1 * exp(-zeta * wn * t) * cos(wd*t-phi))
+
+    return y1
+# end function exact
