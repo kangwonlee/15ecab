@@ -163,3 +163,13 @@ if "__main__" == __name__:
     pylab.xlabel('t')
     pylab.show()
 
+    vP, vV = zip(*vX)
+    vP01, vV01 = zip(*vX01)
+
+    pylab.plot(vP, vV, label='fwd Euler (0.01)')
+    pylab.plot(vP01, vV01, label='fwd Euler (0.001)')
+    pylab.legend(loc=0)
+    pylab.grid(True)
+    pylab.ylabel('xdot')
+    pylab.xlabel('x')
+    pylab.show()
