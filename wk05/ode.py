@@ -32,7 +32,7 @@ def fwd_euler(f, x0, ti, te, deltaT):
     # tuple of time step
     #   because time step will be constant,
     #   define as a tuple instead of a list
-    listT = tuple(ti+deltaT*i for i in listK)
+    listT = tuple(ti + deltaT * i for i in listK)
     # if ti, te, deltaT are given as 0.0, 1.0, 0.1
     #   then mTimStep will be 10
     #   and listT will be [0:0.1:0.9];
@@ -40,7 +40,7 @@ def fwd_euler(f, x0, ti, te, deltaT):
 
     # pre-allocate memory space
     #   to store state vector of each time step
-    listX = [tuple(x0)]     # init x buffer
+    listX = [tuple(x0)]  # init x buffer
 
     # allocation loop
     #   at k = 0, x is x0
@@ -59,7 +59,7 @@ def fwd_euler(f, x0, ti, te, deltaT):
         sk = f(xk, listT[k])
 
         # next step x
-        xk1 = listX[k+1]
+        xk1 = listX[k + 1]
 
         # state loop
         for i in xrange(nStates):
@@ -82,7 +82,7 @@ k = 1000.0
 
 def func(xk, tk):
     """
-    Differentail equation
+    Differential equation
 
     m x2dot(t) + c xdot(t) + k x(t) = u(t)
     u(t) = 1
@@ -106,7 +106,7 @@ def func(xk, tk):
     y2 = xk[1]
 
     y1dot = y2
-    y2dot = (u - (k*y1 + c*y2))/m
+    y2dot = (u - (k * y1 + c * y2)) / m
 
     return (y1dot, y2dot)
 # end function func()
@@ -133,7 +133,7 @@ def exact(t):
     # phase (rad)
     phi = atan(zeta * s)
 
-    y1 = (u / k) * (1.0 - s1 * exp(-zeta * wn * t) * cos(wd*t-phi))
+    y1 = (u / k) * (1.0 - s1 * exp(-zeta * wn * t) * cos(wd * t - phi))
 
     return y1
 # end function exact
@@ -154,6 +154,7 @@ if "__main__" == __name__:
     vXexact = tuple([exact(tk) for tk in vT])
 
     import pylab
+
     pylab.plot(vT, vX, label='fwd Euler (0.01)')
     pylab.plot(vT01, vX01, label='fwd Euler (0.001)')
     pylab.plot(vT, vXexact, 'k', label='exact')
