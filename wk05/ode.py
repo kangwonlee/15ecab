@@ -142,13 +142,13 @@ def exact(t):
 if "__main__" == __name__:
     help(fwd_euler)
 
-    ti = 0.0
-    te = 2.0
-    delta_T = 0.01
+    ti_sec = 0.0
+    te_sec = 2.0
+    delta_T_sec = 0.01
     x0 = (0.0, 0.0)
-    vT, vX = fwd_euler(func, x0, ti, te, delta_T)
-    delta_T = 0.001
-    vT01, vX01 = fwd_euler(func, x0, ti, te, delta_T)
+    vT, vX = fwd_euler(func, x0, ti_sec, te_sec, delta_T_sec)
+    delta_T_sec = 0.001
+    vT01, vX01 = fwd_euler(func, x0, ti_sec, te_sec, delta_T_sec)
 
     # exact solution
     vXexact = tuple([exact(tk) for tk in vT])
