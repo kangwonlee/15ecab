@@ -21,7 +21,7 @@ def fwd_euler(f, x0, ti, te, deltaT):
     listX: 2-dimensional list of state x at each time step
     """
     # number of time steps
-    mTimeStep = int((te - ti) * 1.0, deltaT)
+    mTimeStep = int((te - ti) * 1.0 / deltaT)
 
     # number of states == length of initial state vector
     nStates = len(x0)
@@ -64,7 +64,7 @@ def fwd_euler(f, x0, ti, te, deltaT):
         # state loop
         for i in xrange(nStates):
             # apply forward Euler method
-            xk[i] = xk[i] + sk[i] * deltaT
+            xk1[i] = xk[i] + sk[i] * deltaT
         # end state loop at time step k
 
         # update xk to next step
@@ -141,3 +141,13 @@ def exact(t):
 
 if "__main__" == __name__:
     help(fwd_euler)
+
+    ti = 0.0
+    te = 2.0
+    delta_T = 0.01
+    x0 = (0.0, 0.0)
+    vT, vX = fwd_euler(func, x0, ti, te, delta_T)
+    delta_T = 0.001
+    vT01, vX01 = fwd_euler(func, x0, ti, te, delta_T)
+
+
