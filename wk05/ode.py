@@ -32,7 +32,7 @@ def fwd_euler(f, x0, ti, te, deltaT):
     # tuple of time step
     #   because time step will be constant,
     #   define as a tuple instead of a list
-    listT = tuple([ti+deltaT*i] for i in listK)
+    listT = tuple(ti+deltaT*i for i in listK)
     # if ti, te, deltaT are given as 0.0, 1.0, 0.1
     #   then mTimStep will be 10
     #   and listT will be [0:0.1:0.9];
@@ -149,5 +149,8 @@ if "__main__" == __name__:
     vT, vX = fwd_euler(func, x0, ti, te, delta_T)
     delta_T = 0.001
     vT01, vX01 = fwd_euler(func, x0, ti, te, delta_T)
+
+    # exact solution
+    vXexact = tuple([exact(tk) for tk in vT])
 
 
