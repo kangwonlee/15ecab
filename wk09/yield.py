@@ -5,11 +5,12 @@ import root_finding
 def main():
     root_finding.epsilon = 1e-9
     r_init = root_finding.epsilon
-    result = root_finding.sequential(problem_to_solve, r_init)
+    delta_r = 1e-6
+    result = root_finding.sequential(problem_to_solve, r_init, delta_r)
     print "result =", result
     print "f(result)=", problem_to_solve(result)
 
-    result_bisection = root_finding.bisection(problem_to_solve, result - 1e-6, result)
+    result_bisection = root_finding.bisection(problem_to_solve, result - delta_r, result)
     print "result_bisection =", result_bisection
     print "f(result_bisection) =", problem_to_solve(result_bisection)
 

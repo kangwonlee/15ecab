@@ -2,12 +2,12 @@
 # 1변수 방정식의 해법
 
 
-def sequential(f, x0):
-    # sequential method
-    # x0 에서 시작하여 f(x) 를 계산하고 그 절대값이 epsilon 보다 크면
-    # delta_x 만큼 전진하며 반복한다
+def sequential(f, x0, delta_x=1e-6):
+    """sequential method
+    x0 에서 시작하여 f(x) 를 계산하고 그 부호가 변하지 않으면
+    delta_x 만큼 전진하며 반복한다"""
     xi = float(x0)
-    delta_x = 1e-6
+
     counter = 0
     fp = f(xi)
     while True:
@@ -34,7 +34,8 @@ def bisection(f, xl, xh):
     while True:
         xn = 0.5 * (xl + xh)
 
-        print "xl = %8f f(xl) = %+8f xn = %+8f f(xn) = %+8f xh = %+8f f(xh) = %8f |xh-xl| = %-8f" % (xl, f(xl), xn, f(xn), xh, f(xh), abs(xh-xl))
+        print "xl = %8f f(xl) = %+8f xn = %+8f f(xn) = %+8f xh = %+8f f(xh) = %8f |xh-xl| = %-8f" \
+              % (xl, f(xl), xn, f(xn), xh, f(xh), abs(xh-xl))
 
         fxn = f(xn)
         fxh = f(xh)
