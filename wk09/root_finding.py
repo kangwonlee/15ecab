@@ -32,6 +32,8 @@ def bisection(f, xl, xh):
     while True:
         xn = 0.5 * (xl + xh)
 
+        print "xl = %8f f(xl) = %+8f xn = %+8f f(xn) = %+8f xh = %+8f f(xh) = %8f |xh-xl| = %-8f" % (xl, f(xl), xn, f(xn), xh, f(xh), abs(xh-xl))
+
         fxn = f(xn)
         fxh = f(xh)
 
