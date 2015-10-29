@@ -1,0 +1,2 @@
+import pylab
+help(pylab)

@@ -14,6 +14,8 @@ def main():
     print "result_bisection =", result_bisection
     print "f(result_bisection) =", problem_to_solve(result_bisection)
 
+    help(root_finding.sequential)
+
 
 def problem_to_solve(radius_m):
     force_N = 100.0

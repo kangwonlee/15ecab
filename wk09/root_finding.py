@@ -55,7 +55,7 @@ def bisection(f, xl, xh):
 def newton(f, df, x0):
     """
     뉴튼 랩슨법
-    초기 위치 x0 에서 f(x)를 계산하고 그 절대값이 epsison 보다 작으면 중단
+    초기 위치 x0 에서 f(x)를 계산하고 그 절대값이 epsilon 보다 작으면 중단
     미분을 이용해 접선의 방정식을 구해 풀면서 전진
     수렴이 빠르나 해를 구하지 못할 때도 있다.
     (docstring)
