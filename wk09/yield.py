@@ -3,8 +3,11 @@ import root_finding
 
 
 def main():
-    result = root_finding.?????
+    root_finding.epsilon = 1e-9
+    r_init = root_finding.epsilon
+    result = root_finding.sequential(problem_to_solve, r_init)
     print "result =", result
+    print "f(result)=", problem_to_solve(result)
 
 
 def problem_to_solve(radius_m):
