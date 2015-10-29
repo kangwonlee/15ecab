@@ -51,6 +51,7 @@ def bisection(f, xl, xh):
     while True:
         xn = 0.5 * (xl + xh)
 
+        # bisection method xl, xn, xh 의 변화를 추적하기 위해 중간 출력함
         print "xl = %8f f(xl) = %+8f xn = %+8f f(xn) = %+8f xh = %+8f f(xh) = %8f |xh-xl| = %-8f" \
               % (xl, f(xl), xn, f(xn), xh, f(xh), abs(xh-xl))
 
