@@ -6,16 +6,33 @@ def sequential(f, x0, delta_x=1e-6):
     """sequential method
     x0 에서 시작하여 f(x) 를 계산하고 그 부호가 변하지 않으면
     delta_x 만큼 전진하며 반복한다"""
+
+    # 매개변수 x0가 실수가 아닐 경우, 실수로 만들어 준다
     xi = float(x0)
 
+    # 반복문 반복 횟수 초기화
     counter = 0
+
+    # 이전 함수값 초기화
     fp = f(xi)
+
+    # 무한 반복문
     while True:
+        # 이번 xi 의 함수값
         fi = f(xi)
+
+        # 이전 함수값과 이번 함수값의 부호를 비교
         if fi * fp < 0:
+            # 다르면 반복문을 중단
             break
+
+        # 이전 함수값과 이번 함수값의 부호가 같다면
+        # xi 를 delta_x 만큼 증가시킨다
         xi += delta_x
+
+        # 반복 횟수 1 증가
         counter += 1
+        # 이번 함수값을 이전 함수값으로 저장
         fp = fi
     print "seq_counter =", counter
     return xi
