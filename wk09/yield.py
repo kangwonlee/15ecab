@@ -9,7 +9,7 @@ def main():
     print "result =", result
     print "f(result)=", problem_to_solve(result)
 
-    result_bisection = root_finding.bisection(problem_to_solve, r_init, result)
+    result_bisection = root_finding.bisection(problem_to_solve, result - 1e-6, result)
     print "result_bisection =", result_bisection
     print "f(result_bisection) =", problem_to_solve(result_bisection)
 
