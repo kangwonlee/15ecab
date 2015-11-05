@@ -17,8 +17,7 @@ print "oo > 99999 =", oo > 99999
 print "oo + 1 =", oo + 1
 
 print '''2.10.1.3'''
-x = Symbol('x')
-y = Symbol('y')
+x, y = symbols('x y')
 
 print "x+y+x-y =", x+y+x-y
 print "(x+y)**2 =", (x+y)**2
@@ -69,7 +68,6 @@ pylab.plot(x_deg, y_series_2, label='series 2')
 pylab.plot(x_deg, y_series_3, label='series 3')
 pylab.grid()
 pylab.legend(loc=0)
-pylab.show()
 
 print "2.10.3.5"
 print "integrate(6*x**5, x) =", integrate(6*x**5, x)
@@ -85,3 +83,30 @@ print "integrate(cos(x), (x, -pi/2, pi/2) =", integrate(cos(x), (x, -pi/2, pi/2)
 
 print "integrate(exp(-x), (x, 0, oo)) =", integrate(exp(-x), (x, 0, oo))
 print "integrate(exp(-x**2), (x, -oo, oo)) =", integrate(exp(-x**2), (x, -oo, oo))
+
+print '''2.10.4'''
+print "solve(x**4 - 1, x) =", solve(x**4 - 1, x)
+
+print "solve([x + 5*y - 2, -3*x + 6*y - 15], [x, y]) =", solve([x + 5*y - 2, -3*x + 6*y - 15], [x, y])
+
+print "solve(exp(x) + 1, x) =", solve(exp(x) + 1, x)
+
+f = x**4 - 3*x**2 + 1
+print "f =", f
+print "factor(f) =", factor(f)
+
+print "satisfiable(x&y) =", satisfiable(x&y)
+print "satisfiable(x^y) =", satisfiable(x^y)
+
+print '''2.10.5.1'''
+print "Matrix([[1, 0], [0, 1]]) =", Matrix([[1, 0], [0, 1]])
+A = Matrix([[1, x], [y, 1]])
+print "A =", A
+print "A**2 =", A**2
+
+print '''2.10.5.2'''
+f = Function('f')
+print "f(x).diff(x, x) - f(x) =",f(x).diff(x, x) - f(x)
+print "dsolve(f(x).diff(x, x) + f(x)) :", dsolve(f(x).diff(x, x) + f(x))
+
+pylab.show()
