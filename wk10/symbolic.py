@@ -15,3 +15,17 @@ print "(pi+exp(1)).evalf() =", (pi+exp(1)).evalf()
 
 print "oo > 99999 =", oo > 99999
 print "oo + 1 =", oo + 1
+
+print '''2.10.1.3'''
+x = Symbol('x')
+y = Symbol('y')
+
+print "x+y+x-y =", x+y+x-y
+print "(x+y)**2 =", (x+y)**2
+
+print '''2.10.2.1'''
+print "expand((x+y)**3) =", expand((x+y)**3)
+
+print "expand(x+y, complex=True) =", expand(x+y, complex=True)
+print "expand(cos(x+y), trig=True) =", expand(cos(x+y), trig=True)
+
