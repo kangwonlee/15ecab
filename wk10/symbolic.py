@@ -95,6 +95,12 @@ f = x**4 - 3*x**2 + 1
 print "f =", f
 print "factor(f) =", factor(f)
 
+g = expand((x - 1)*(x - 2)*(x - (-1 + I))*(x - (-1 - I)))
+print "g =", g
+print "factor(g) =", factor(g)
+print "factor(g, gaussian=True) =", factor(g, gaussian=True)
+help(factor)
+
 print "satisfiable(x&y) =", satisfiable(x&y)
 print "satisfiable(x^y) =", satisfiable(x^y)
 
