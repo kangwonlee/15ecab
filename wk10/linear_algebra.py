@@ -22,9 +22,7 @@ def multiply_matrix_vector(A, x):
 
     result = [0.0] * n_row
     for i in xrange(n_row):
-        result[i] = 0.0
-        for j in xrange(n_column):
-            result[i] += A[i][j] * x[j]
+        result[i] = dot(A[i], x)
 
     return result
 
