@@ -1,6 +1,7 @@
 import unittest
-import linear_algebra as la
 import math
+
+import linear_algebra as la
 
 
 class TestLinearAlgebra(unittest.TestCase):
@@ -112,6 +113,21 @@ class TestLinearAlgebra(unittest.TestCase):
                 self.assertEqual(len(C[k]), len(expected[k]))
                 for j in xrange(len(expected[k])):
                     self.assertAlmostEqual(C[k][j], expected[k][j])
+
+    def test_multiply_matrix_matrix_03(self):
+        A = [[11, 12, 13],
+             [21, 22, 23]]
+        B = [[111, 112],
+             [121, 122],
+             [131, 132]]
+        C = la.multiply_matrix_matrix(A, B)
+
+        BT = zip(*B)
+
+        expected = [[la.dot(A[0], BT[0]), la.dot(A[0], BT[1])],
+                    [la.dot(A[1], BT[0]), la.dot(A[1], BT[1])]]
+
+        self.assertSequenceEqual(C, expected)
 
 
 if "__main__" == __name__:
