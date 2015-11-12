@@ -36,13 +36,13 @@ def multiply_matrix_matrix(A, B):
         print "matrix size incorrect"
         return None
 
-    BT = zip(*B)
-
     result = []
     for i_row in xrange(n_row):
         result_row = [0.0] * n_column
         for j_column in xrange(n_column):
-            result_row[j_column] = dot(A[i_row], BT[j_column])
+            result_row[j_column] = 0.0
+            for k_dummy in xrange(n_dummyA):
+                result_row[j_column] += A[i_row][k_dummy] * B[k_dummy][j_column]
 
         result.append(result_row)
 
