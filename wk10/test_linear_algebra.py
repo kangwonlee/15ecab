@@ -6,10 +6,13 @@ import linear_algebra as la
 
 class TestLinearAlgebra(unittest.TestCase):
     def test_dot_01(self):
-        a = [1.0, 1.0]
-        b = [1.0, 1.0]
+        a = (1.0, 1.0)
+        b = (1.0, 1.0)
         c = la.dot(a, b)
         expected = 2.0
+
+        self.assertSequenceEqual(a, (1.0, 1.0))
+        self.assertSequenceEqual(b, (1.0, 1.0))
 
         self.assertAlmostEqual(c, expected)
 
