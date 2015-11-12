@@ -132,6 +132,25 @@ class TestLinearAlgebra(unittest.TestCase):
 
         self.assertSequenceEqual(C, expected)
 
+    def test_gauss_elimination_01(self):
+        A = [[3, 2, 1],
+             [2, 3, 2],
+             [1, 2, 3]]
+
+        b = [1, 2, 3]
+
+        x = la.gauss_elimination(A, b)
+
+        expected = [0.0, 0.0, 1.0]
+
+        self.assertSequenceEqual(x, expected)
+
+        self.assertSequenceEqual(A, [[3, 2, 1],
+                                     [2, 3, 2],
+                                     [1, 2, 3]])
+
+        self.assertSequenceEqual(b, [1, 2, 3])
+
 
 if "__main__" == __name__:
     unittest.main()
