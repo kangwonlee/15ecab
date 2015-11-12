@@ -43,5 +43,15 @@ class TestLinearAlgebra(unittest.TestCase):
 
         self.assertAlmostEqual(c, expected)
 
+    def test_multiply_matrix_vector_01(self):
+        A = [[1.0, 1.0],
+             [1.0, 1.0]]
+        b = [1.0, 1.0]
+        c = la.multiply_matrix_vector (A, b)
+        expected = [2.0, 2.0]
+
+        self.assertSequenceEqual(c, expected)
+
+
 if "__main__" == __name__:
     unittest.main()
