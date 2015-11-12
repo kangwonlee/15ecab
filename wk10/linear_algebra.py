@@ -18,11 +18,33 @@ def dot(a, b):
 
 def multiply_matrix_vector(A, x):
     n_row = len(A)
-    n_column = len(A[0])
 
     result = [0.0] * n_row
     for i in xrange(n_row):
         result[i] = dot(A[i], x)
+
+    return result
+
+
+def multiply_matrix_matrix(A, B):
+    n_row = len(A)
+    n_column = len(B[0])
+    n_dummyA = len(A[0])
+    n_dummyB = len(B)
+
+    if n_dummyA != n_dummyB :
+        print "matrix size incorrect"
+        return None
+
+    BT = zip(*B)
+
+    result = []
+    for i_row in xrange(n_row):
+        result_row = [0.0] * n_column
+        for j_column in xrange(n_column):
+            result_row[j_column] = dot(A[i_row], BT[j_column])
+
+        result.append(result_row)
 
     return result
 
@@ -45,6 +67,19 @@ def main():
     pprint(A_matrix, width=20)
     print "x =", x_vector
     print "A*x =", A_x
+
+    A_matrix = [[1, 2],
+                [3, 4]]
+    B_matrix = [[1, 0],
+                [0, 1]]
+
+    C_matrix = multiply_matrix_matrix(A_matrix, B_matrix)
+    print "A ="
+    pprint(A_matrix)
+    print "B ="
+    pprint(B_matrix)
+    print "C ="
+    pprint(C_matrix)
 
 
 if "__main__" == __name__:

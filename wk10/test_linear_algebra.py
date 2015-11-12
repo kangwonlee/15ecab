@@ -75,6 +75,44 @@ class TestLinearAlgebra(unittest.TestCase):
             for k in xrange(len(expected)):
                 self.assertAlmostEqual(c[k], expected[k])
 
+    def test_multiply_matrix_matrix_01(self):
+        A = [[1.0, 1.0],
+             [1.0, 1.0]]
+        B = [[1.0, -1.0],
+             [-1.0, 1.0]]
+        C = la.multiply_matrix_matrix(A, B)
+        expected = [[0.0, 0.0],
+                    [0.0, 0.0]]
+
+        self.assertSequenceEqual(C, expected)
+
+    def test_multiply_matrix_matrix_02(self):
+
+        for angle_deg in xrange(361):
+            angle_rad = math.radians(angle_deg)
+            cos = math.cos(angle_rad)
+            sin = math.sin(angle_rad)
+            A = [[cos, -sin],
+                 [sin,  cos]]
+
+            angle2_deg = - angle_deg
+            angle2_rad = math.radians(angle2_deg)
+            cos2 = math.cos(angle2_rad)
+            sin2 = math.sin(angle2_rad)
+            B = [[cos2, -sin2],
+                 [sin2,  cos2]]
+
+            C = la.multiply_matrix_matrix (A, B)
+            expected = [[1.0, 0.0],
+                        [0.0, 1.0]]
+
+            self.assertEqual(len(C), len(expected))
+
+            for k in xrange(len(expected)):
+                self.assertEqual(len(C[k]), len(expected[k]))
+                for j in xrange(len(expected[k])):
+                    self.assertAlmostEqual(C[k][j], expected[k][j])
+
 
 if "__main__" == __name__:
     unittest.main()
