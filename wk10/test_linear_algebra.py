@@ -1,5 +1,6 @@
 import unittest
 import linear_algebra as la
+import math
 
 
 class TestLinearAlgebra(unittest.TestCase):
@@ -51,6 +52,28 @@ class TestLinearAlgebra(unittest.TestCase):
         expected = [2.0, 2.0]
 
         self.assertSequenceEqual(c, expected)
+
+    def test_multiply_matrix_vector_02(self):
+
+        base_angle_deg = 30
+        base_angle_rad = math.radians(base_angle_deg)
+        b = [math.cos(base_angle_rad), math.sin(base_angle_rad)]
+
+        for angle_deg in xrange(361):
+            angle_rad = math.radians(angle_deg)
+            cos = math.cos(angle_rad)
+            sin = math.sin(angle_rad)
+            A = [[cos, -sin],
+                 [sin,  cos]]
+            c = la.multiply_matrix_vector (A, b)
+            expected_angle_deg = angle_deg + base_angle_deg
+            expected_angle_rad = math.radians(expected_angle_deg)
+            expected = [math.cos(expected_angle_rad), math.sin(expected_angle_rad)]
+
+            self.assertEqual(len(c), len(expected))
+
+            for k in xrange(len(expected)):
+                self.assertAlmostEqual(c[k], expected[k])
 
 
 if "__main__" == __name__:
