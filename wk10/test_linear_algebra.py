@@ -3,6 +3,7 @@ import math
 
 import linear_algebra as la
 import gauss_jordan as gj
+import eigenanalysis as ea
 
 
 class TestLinearAlgebra(unittest.TestCase):
@@ -170,6 +171,32 @@ class TestLinearAlgebra(unittest.TestCase):
                     self.assertAlmostEqual(result[i][j], 1.0)
                 else:
                     self.assertAlmostEqual(result[i][j], 0.0)
+
+    def test_power_method_01(self):
+        A = [[3, 2, 1],
+             [2, 3, 2],
+             [1, 2, 3]]
+
+        lamda, x = ea.power_method(A)
+        Ax = la.multiply_matrix_vector(A, x)
+
+        self.assertEqual(len(A), len(Ax))
+
+        for i in xrange(len(A)):
+            self.assertAlmostEqual(Ax[i], lamda*x[i])
+
+    def test_power_method_02(self):
+        A = [[3, 0.2, 0.1],
+             [0, 2, 0.2],
+             [0, 0, 1]]
+
+        lamda, x = ea.power_method(A)
+        Ax = la.multiply_matrix_vector(A, x)
+
+        self.assertEqual(len(A), len(Ax))
+
+        for i in xrange(len(A)):
+            self.assertAlmostEqual(Ax[i], lamda*x[i])
 
 
 if "__main__" == __name__:
