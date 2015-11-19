@@ -186,6 +186,24 @@ class TestLinearAlgebra(unittest.TestCase):
             self.assertAlmostEqual(Ax[i], lamda*x[i])
 
     def test_power_method_02(self):
+        A = [[3, 2, 1],
+             [2, 3, 2],
+             [1, 2, 3]]
+
+        lamda, x = ea.power_method(A)
+
+        A_minus_lambda_I = [[3-lamda, 2, 1],
+                            [2, 3-lamda, 2],
+                            [1, 2, 3-lamda]]
+
+        z = la.multiply_matrix_vector(A_minus_lambda_I, x)
+
+        self.assertEqual(len(A), len(z))
+
+        for i in xrange(len(z)):
+            self.assertAlmostEqual(z[i], 0.0)
+
+    def test_power_method_03(self):
         A = [[3, 0.2, 0.1],
              [0, 2, 0.2],
              [0, 0, 1]]
