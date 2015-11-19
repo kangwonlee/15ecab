@@ -2,6 +2,7 @@ import unittest
 import math
 
 import linear_algebra as la
+import gauss_jordan as gj
 
 
 class TestLinearAlgebra(unittest.TestCase):
@@ -150,6 +151,25 @@ class TestLinearAlgebra(unittest.TestCase):
                                      [1, 2, 3]])
 
         self.assertSequenceEqual(b, [1, 2, 3])
+
+    def test_gauss_jordan_01(self):
+        A = [[3, 2, 1],
+             [2, 3, 2],
+             [1, 2, 3]]
+
+        A_inverse = gj.gauss_jordan(A)
+
+        result = la.multiply_matrix_matrix(A, A_inverse)
+
+        self.assertEqual(len(A), len(A_inverse))
+        for i in xrange(len(A)):
+            self.assertEqual(len(A[i]), len(A_inverse[i]))
+
+            for j in xrange(len(A[i])):
+                if i == j:
+                    self.assertAlmostEqual(result[i][j], 1.0)
+                else:
+                    self.assertAlmostEqual(result[i][j], 0.0)
 
 
 if "__main__" == __name__:
