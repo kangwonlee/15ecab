@@ -165,6 +165,7 @@ if "__main__" == __name__:
     print "x =", x1
 
     lamda, x = jacobi_method(A)
-    print "lambda =", lamda
+    print "lambda ="
+    pprint(lamda, width=30)
     print "x ="
     pprint(x)
