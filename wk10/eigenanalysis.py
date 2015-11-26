@@ -169,3 +169,12 @@ if "__main__" == __name__:
     pprint(lamda, width=30)
     print "x ="
     pprint(x)
+
+    import random
+    n = 64
+    A = [[random.randint(1, 127)/256.0 for j_column in xrange(n)] for i_row in xrange(n)]
+    # symmetric
+    A = la.multiply_matrix_matrix(A, zip(*A))
+
+    import cProfile
+    cProfile.run('jacobi_method(A)')
