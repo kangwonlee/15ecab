@@ -178,6 +178,9 @@ class TestLinearAlgebra(unittest.TestCase):
              [1, 2, 3]]
 
         lamda, x = ea.power_method(A)
+
+        self.assertGreater(abs(lamda), 0.0)
+
         Ax = la.multiply_matrix_vector(A, x)
 
         self.assertEqual(len(A), len(Ax))
