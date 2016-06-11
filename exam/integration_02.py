@@ -18,6 +18,21 @@ def problem_a():
     return result
 
 
+def problem_a1():
+    xk = 0.0
+    delta_x = (1.0 - 0.0) / 5
+    result = 0.0
+    for i in xrange(5):
+        
+    x = [i * 0.2 for i in xrange(5)]
+    delta_x = x[1] - x[0]
+    result = 0.0
+    for xk in x:
+        Fk = f(xk) * delta_x
+        result += Fk
+    return result
+
+
 def problem_b():
     x = [i * 0.2 for i in xrange(6)]
     delta_x = x[1] - x[0]

@@ -17,10 +17,25 @@ def pascal(n):
     return result
 
 
+def pascal_matrix():
+    p = [[0.0]*20 for k in xrange(20)]
+    for i in xrange(20):
+        p[i][1] = 1.0
+        p[i][i] = 1.0
+    for i in xrange(18):
+        a = i + 2
+        for k in xrange(19):
+            b = k + 1
+            p[a][b] = p[a-1][b-1] + p[a-1][b]
+    return p
+
+
 def main():
     triangle = pascal(20)
+    rect = pascal_matrix()
     for i, row in enumerate(triangle):
         print('%2d %s' % (i + 1, row))
+        print('%2d %s' % (i + 1, rect[i]))
 
 
 if __name__ == '__main__':
